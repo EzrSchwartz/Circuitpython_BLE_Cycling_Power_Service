@@ -2,9 +2,3 @@
 # SPDX-FileCopyrightText: Copyright (c) 2024 Ezra Schwartz
 #
 # SPDX-License-Identifier: MIT
-
-<<<<<<< HEAD
-Adafruit-Blinka
-=======
->>>>>>> 5f9e32a (Requirements updated)
-
