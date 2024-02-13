@@ -38,8 +38,6 @@ Installing from PyPI
 .. note:: This library is not available on PyPI yet. Install documentation is included
    as a standard element. Stay tuned for PyPI availability!
 
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
-
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/circuitpython-cycling-power-service/>`_.
 To install for current user:
@@ -89,8 +87,37 @@ Or the following command to update an existing version:
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the
-examples folder and be included in docs/examples.rst.
+
+from adafruit_ble import BLERadio
+from adafruit_ble.advertising import Advertisement
+from cycling_power_service import CyclingPowerService
+
+
+# This function will return the power meter object after connecting
+# requires you to feed it the name of the power meter which you want to connect to
+def PowerConnectAndReturn(device_name):
+    ble = BLERadio()
+    print(f"Scanning for {device_name}")
+    for advertisement in ble.start_scan(Advertisement, timeout=5):
+        if advertisement.complete_name == device_name:
+            print(f"Found {device_name}, trying to connect...")
+            power_sensor = ble.connect(advertisement)
+            print("Connected.")
+            return power_sensor
+    print("No Sensor Found")
+    return None
+
+
+# Function to return the power value after being fed the power sensor object
+def ReturnPower(power_sensor):
+    power_service = power_sensor[CyclingPowerService]
+    power = power_service.power_Value
+    return power
+
+
+# Will print the current power recorded by the device name
+print(ReturnPower(PowerConnectAndReturn("Replace with name of your power meter")))
+
 
 Documentation
 =============
