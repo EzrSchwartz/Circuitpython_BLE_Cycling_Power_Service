@@ -2,6 +2,3 @@
 # SPDX-FileCopyrightText: Copyright (c) 2024 Ezra Schwartz
 #
 # SPDX-License-Identifier: MIT
-
-
-Be connected to a bluetooth power meter before using these functions.
