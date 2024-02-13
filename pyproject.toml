@@ -24,11 +24,12 @@ keywords = [
     "blinka",
     "circuitpython",
     "micropython",
-    "cycling_power_service",
+    "ble_cycling_power_service",
     "BLE",
     "Bluetooth",
     "Cycling",
     "Power",
+    "Sensors",
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -44,7 +45,7 @@ dynamic = ["dependencies", "optional-dependencies"]
 [tool.setuptools]
 # TODO: IF LIBRARY FILES ARE A PACKAGE FOLDER,
 #       CHANGE `py_modules = ['...']` TO `packages = ['...']`
-py-modules = ["cycling_power_service"]
+py-modules = ["ble_cycling_power_service"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
